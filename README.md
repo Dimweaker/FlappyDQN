@@ -14,8 +14,7 @@
 ### 测试
 ```python test.py [-h] [--model_name MODEL_NAME] [--image_size IMAGE_SIZE] [--log_path LOG_PATH]```
 ## 效果演示
-<iframe src="//player.bilibili.com/player.html?aid=569249474&bvid=BV1Vv4y1V7j8&cid=1071593121&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+[![Watch the video](demo.png)](https://www.bilibili.com/video/BV1Vv4y1V7j8)
 ## 项目报告
 本项目是大一年度项目，报告内容暂不公开，如有需要请联系作者。
 ## 参考

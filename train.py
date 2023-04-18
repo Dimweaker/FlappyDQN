@@ -14,6 +14,8 @@ from tensorboardX import SummaryWriter
 def get_args():
     parser = argparse.ArgumentParser(
         """Implementation of Deep Q Network to play Flappy Bird""")
+
+    parser.add_argument("--iter", type=int, default=0)
     parser.add_argument("--image_size", type=int, default=84, help="The common width and height for all images")
     parser.add_argument("--batch_size", type=int, default=256, help="The number of images per batch")
     parser.add_argument("--optimizer", type=str, choices=["sgd", "adam"], default="adam")
@@ -153,4 +155,4 @@ def train(opt, iter=0):
 
 if __name__ == "__main__":
     opt = get_args()
-    train(opt)
+    train(opt, opt.iter)

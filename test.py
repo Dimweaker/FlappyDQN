@@ -7,22 +7,23 @@ from tensorboardX import SummaryWriter
 def get_args():
     parser = argparse.ArgumentParser(
         """Implementation of Deep Q Network to play Flappy Bird""")
+
+    parser.add_argument("--model_name", type=str)
     parser.add_argument("--image_size", type=int, default=84, help="The common width and height for all images")
-    parser.add_argument("--saved_path", type=str, default="models")
     parser.add_argument("--log_path", type=str, default="tensorboard")
 
     args = parser.parse_args()
     return args
 
 
-def test(opt, model_index=0):
+def test(opt, model_name):
     writer = SummaryWriter(opt.log_path)
     if torch.cuda.is_available():
         torch.cuda.manual_seed(123)
     else:
         torch.manual_seed(123)
 
-    model = torch.load(opt.saved_path + '/model_{}.pth'.format(model_index))
+    model = torch.load(opt.saved_path + model_name)
     game = FlappyBird()
     game.reset()
     game_times = 0
@@ -62,4 +63,4 @@ def test(opt, model_index=0):
 
 if __name__ == "__main__":
     opt = get_args()
-    test(opt)
+    test(opt, opt.model_name)
